@@ -14,7 +14,7 @@ const AdvertWidget = () => {
                 <Typography color={dark} variant="h5" fontWeight="500">Sponsored</Typography>
                 <Typography color={medium}>Create Ad</Typography>
             </FlexBetween>
-            <img width="100%" height="auto" alt="advert" src="http://localhost:3001/assets/info4.jpeg" style={{borderRadius:"0.75rem", margin:"0.75rem 0"}} />
+            <img width="100%" height="auto" alt="advert" src={`${process.env.REACT_APP_BACKEND_URL}assets/info4.jpeg`} style={{borderRadius:"0.75rem", margin:"0.75rem 0"}} />
             <FlexBetween>
                 <Typography color={main}>MAC Cosmetics</Typography>
                 <Typography color={medium}>MAC.com</Typography>

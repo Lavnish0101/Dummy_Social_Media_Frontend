@@ -9,7 +9,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch("http://localhost:3001/posts", {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}posts`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -21,7 +21,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `${process.env.REACT_APP_BACKEND_URL}posts/${userId}/posts`,
       {
         method: "GET",
         headers: {
@@ -43,7 +43,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-    {posts.map(({
+      {posts.map(
+        ({
           _id,
           userId,
           firstName,
@@ -67,9 +68,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             likes={likes}
             comments={comments}
           />
-        ))}
+        )
+      )}
     </>
-  )
+  );
 };
 
 export default PostsWidget;
